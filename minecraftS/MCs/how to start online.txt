@@ -1,0 +1,11 @@
+ngrok tcp --region eu 25565
+
+ops
+[
+ {
+   "uuid": "",
+   "name":"",
+   "level": 4,
+   "bypassesPlayerLimit":
+  }
+]

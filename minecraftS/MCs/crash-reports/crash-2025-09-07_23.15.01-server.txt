@@ -1,0 +1,123 @@
+---- Minecraft Crash Report ----
+// This doesn't make any sense!
+
+Time: 2025-09-07 23:15:01
+Description: Exception loading chunk
+
+java.lang.OutOfMemoryError: Java heap space
+	at it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.rehash(Long2ObjectOpenHashMap.java:1304)
+	at it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.insert(Long2ObjectOpenHashMap.java:255)
+	at it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.put(Long2ObjectOpenHashMap.java:263)
+	at ehs.a(SourceFile:212)
+	at ehs.c(SourceFile:174)
+	at ehs.d(SourceFile:128)
+	at clp.a(SourceFile:209)
+	at eht.a(SourceFile:248)
+	at atf.a(SourceFile:586)
+	at atf$$Lambda/0x000002c301d72d50.apply(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:646)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
+	at bvx.d(SourceFile:164)
+	at aty$a.d(SourceFile:623)
+	at bvx.B(SourceFile:138)
+	at aty$a.B(SourceFile:632)
+	at aty.d(SourceFile:282)
+	at net.minecraft.server.MinecraftServer.bv(SourceFile:871)
+	at net.minecraft.server.MinecraftServer.B(SourceFile:859)
+	at bvx.b(SourceFile:147)
+	at net.minecraft.server.MinecraftServer.b(SourceFile:823)
+	at net.minecraft.server.MinecraftServer.w_(SourceFile:830)
+	at net.minecraft.server.MinecraftServer.y(SourceFile:713)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:291)
+	at net.minecraft.server.MinecraftServer$$Lambda/0x000002c301c8c000.run(Unknown Source)
+	at java.base/java.lang.Thread.runWith(Thread.java:1596)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.rehash(Long2ObjectOpenHashMap.java:1304)
+	at it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.insert(Long2ObjectOpenHashMap.java:255)
+	at it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap.put(Long2ObjectOpenHashMap.java:263)
+	at ehs.a(SourceFile:212)
+	at ehs.c(SourceFile:174)
+	at ehs.d(SourceFile:128)
+	at clp.a(SourceFile:209)
+	at eht.a(SourceFile:248)
+	at atf.a(SourceFile:586)
+	at atf$$Lambda/0x000002c301d72d50.apply(Unknown Source)
+
+-- Chunk being loaded --
+Details:
+	pos: [-41, 17]
+Stacktrace:
+	at atf.a(SourceFile:603)
+	at atf.a(SourceFile:592)
+	at java.base/java.util.concurrent.CompletableFuture.uniExceptionally(CompletableFuture.java:990)
+	at java.base/java.util.concurrent.CompletableFuture$UniExceptionally.tryFire(CompletableFuture.java:974)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
+	at bvx.d(SourceFile:164)
+	at aty$a.d(SourceFile:623)
+	at bvx.B(SourceFile:138)
+	at aty$a.B(SourceFile:632)
+	at aty.d(SourceFile:282)
+	at net.minecraft.server.MinecraftServer.bv(SourceFile:871)
+	at net.minecraft.server.MinecraftServer.B(SourceFile:859)
+	at bvx.bA(SourceFile:123)
+	at net.minecraft.server.MinecraftServer.w_(SourceFile:827)
+	at net.minecraft.server.MinecraftServer.y(SourceFile:713)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:291)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.8
+	Minecraft Version ID: 1.21.8
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 21.0.5, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 3244382120 bytes (3094 MiB) / 4294967296 bytes (4096 MiB) up to 4294967296 bytes (4096 MiB)
+	CPUs: 6
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i5-9400F CPU @ 2.90GHz
+	Identifier: Intel64 Family 6 Model 158 Stepping 10
+	Microarchitecture: Coffee Lake
+	Frequency (GHz): 2.90
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 6
+	Graphics card #0 name: Radeon RX 580 Series
+	Graphics card #0 vendor: Advanced Micro Devices, Inc.
+	Graphics card #0 VRAM (MiB): 8192.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 31.0.21923.11000
+	Memory slot #0 capacity (MiB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 2.67
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MiB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 2.67
+	Memory slot #1 type: DDR4
+	Virtual memory max (MiB): 20092.63
+	Virtual memory used (MiB): 16869.64
+	Swap memory total (MiB): 3766.16
+	Swap memory used (MiB): 25.18
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 56493.75, total: 475997.00
+	Space in storage for workdir (MiB): available: 56493.75, total: 475997.00
+	JVM Flags: 2 total; -Xmx4096M -Xms4096M
+	Server Running: true
+	Player Count: 3 / 20; [auc['alks99'/3, l='ServerLevel[world]', x=-1078.30, y=31.75, z=4166.03], auc['mohadmsm'/32405, l='ServerLevel[world]', x=84.76, y=71.42, z=1869.71], auc['Ahmed'/32936, l='ServerLevel[world]', x=-773.97, y=62.11, z=-94.86]]
+	Active Data Packs: vanilla
+	Available Data Packs: minecart_improvements, redstone_experiments, trade_rebalance, vanilla
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	World Seed: 7513197989961371692
+	Suppressed Exceptions: ~~NONE~~
+	Is Modded: Probably not. Server jar signature and brand is untouched
+	Type: Dedicated Server (map_server.txt)

@@ -1,0 +1,4 @@
+1. open terminal here
+2. git add .
+3. git commit -m "21/10"
+4. git push origin HEAD
